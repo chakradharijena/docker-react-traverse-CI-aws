@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t chakradharijena545/docker-react-traverse-CI-aws -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true chakradharijena545/docker-react-traverse-CI-aws npm run test -- --coverage
